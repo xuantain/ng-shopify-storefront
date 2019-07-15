@@ -1,5 +1,20 @@
-<header>
-  <div class="container">
-    Header
-  </div>
-</header>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Ng Shopify Storefront</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>store</mat-icon>
+        <span>Products</span>
+      </button>
+    </mat-menu>
+    <mat-icon class="material-icons">shopping_basket</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
