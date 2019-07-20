@@ -1,0 +1,27 @@
+.products-page {
+  margin: auto;
+  max-width: 1248px;
+}
+
+.products-page__content {
+}
+
+.products-page__header {
+  margin-top: 20px;
+}
+
+.products-page__searchbar {
+}
+
+.products-page__sortby {
+  float: right;
+}
+
+.product__details {
+  flex: auto;
+  text-align: right;
+
+  a {
+    color: aliceblue;
+  }
+}

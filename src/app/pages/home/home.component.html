@@ -1,37 +1,9 @@
-<!-- <div class="home-page">
-  <mat-grid-list cols="4" rowHeight="100px">
-    <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows"
-      [style.background]="tile.color">
-      {{tile.text}}
-    </mat-grid-tile>
-  </mat-grid-list>
-  <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
-</div> -->
-
 <main class="home">
   <mat-card class="home__wrap">
     <mat-card-content class="home__content">
       <h1>Ng Shopify Storefront</h1>
       <p>A Shopping Cart built with TypeScript, AngularJS, Apollo Client, Shopify Storefront GraphQL API, ... and Material UI.</p>
-      <button mat-raised-button color="primary">BROWSE PRODUCTS</button>
+      <a mat-raised-button color="primary" routerLink="/products">BROWSE PRODUCTS</a>
       <a mat-raised-button href="https://github.com/xuantain/ng-shopify-storefront">GET SOURCE CODE</a>
     </mat-card-content>
   </mat-card>

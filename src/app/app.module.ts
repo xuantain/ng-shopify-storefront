@@ -11,7 +11,8 @@ import {
   MatIconModule,
   MatListModule,
 } from '@angular/material';
-import {FlexLayoutModule} from '@angular/flex-layout';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,12 +25,12 @@ import { PagesModule } from './pages';
     HttpClientModule,
     ApolloModule,
     HttpLinkModule,
-    PagesModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
     MatListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    PagesModule
   ],
   declarations: [
     AppComponent

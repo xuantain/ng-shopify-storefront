@@ -1,0 +1,42 @@
+<div class="products-page">
+
+  <div class="products-page__header">
+    <mat-form-field class="products-page__searchbar">
+      <input matInput placeholder="Search">
+    </mat-form-field>
+    <mat-form-field class="products-page__sortby">
+      <mat-label>Sort by</mat-label>
+      <select matNativeControl>
+        <option value="valid" selected>Best selling</option>
+        <option value="invalid">Newest</option>
+        <option value="invalid">Oldest</option>
+        <option value="invalid">Price (Low > Hight)</option>
+        <option value="invalid">Price (Hight > Low)</option>
+      </select>
+    </mat-form-field>
+  </div>
+
+  <mat-grid-list class="products-page__content" [cols]="breakpoint" gutterSize="20" rowHeight="500px" (window:resize)="onResize($event)">
+    <mat-grid-tile
+        *ngFor="let product of products"
+        [colspan]="product.cols"
+        [rowspan]="product.rows"
+        [style.background]="product.color"
+    >
+      <img src="{{product.image}}" alt="{{product.name}}" height="100%">
+      <mat-grid-tile-footer class="product__item">
+        <div class="product__infos">
+          <span>{{product.name}}</span>
+          <br>
+          <span>{{product.currency + product.price}}</span>
+        </div>
+        <div class="product__details">
+          <a mat-button routerLink="/product">
+            <mat-icon>info</mat-icon>
+          </a>
+        </div>
+      </mat-grid-tile-footer>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>

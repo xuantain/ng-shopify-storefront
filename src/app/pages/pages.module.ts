@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { LayoutModule } from './layout/layout.module';
 import { HomeModule } from './home/home.module';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { HomeModule } from './home/home.module';
     HttpClientModule,
     RouterModule,
     LayoutModule,
-    HomeModule
+    HomeModule,
+    ProductsModule
   ],
   declarations: [
   ],

@@ -7,21 +7,21 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <a mat-menu-item routerLink=".">
+        <a mat-menu-item routerLink="/">
           <mat-icon>home</mat-icon>
           <span>Home</span>
         </a>
-        <button mat-menu-item>
+        <a mat-menu-item routerLink="/products">
           <mat-icon>store</mat-icon>
           <span>Products</span>
-        </button>
+        </a>
       </mat-menu>
-      <a class="header__menu_button" mat-icon-button routerLink=".">
+      <a class="header__menu_button" mat-icon-button routerLink="/">
         <mat-icon>home</mat-icon>
       </a>
-      <button class="header__menu_button" mat-icon-button>
+      <a class="header__menu_button" mat-icon-button routerLink="/products">
         <mat-icon>store</mat-icon>
-      </button>
+      </a>
       <button mat-icon-button>
         <mat-icon class="material-icons">shopping_basket</mat-icon>
       </button>
