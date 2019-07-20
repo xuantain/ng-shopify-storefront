@@ -1,20 +1,30 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
+<mat-toolbar color="primary" class="header">
+  <mat-toolbar-row class="header__content">
     <span>Ng Shopify Storefront</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>
+    <div class="header__content__buttonGroups">
+      <button class="header__menu_buttons" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <a mat-menu-item routerLink=".">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+        </a>
+        <button mat-menu-item>
+          <mat-icon>store</mat-icon>
+          <span>Products</span>
+        </button>
+      </mat-menu>
+      <a class="header__menu_button" mat-icon-button routerLink=".">
         <mat-icon>home</mat-icon>
-        <span>Home</span>
-      </button>
-      <button mat-menu-item>
+      </a>
+      <button class="header__menu_button" mat-icon-button>
         <mat-icon>store</mat-icon>
-        <span>Products</span>
       </button>
-    </mat-menu>
-    <mat-icon class="material-icons">shopping_basket</mat-icon>
+      <button mat-icon-button>
+        <mat-icon class="material-icons">shopping_basket</mat-icon>
+      </button>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>

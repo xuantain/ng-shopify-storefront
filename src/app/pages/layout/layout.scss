@@ -1,0 +1,42 @@
+.header {
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2);
+}
+
+.header__content {
+  position: relative;
+  margin: auto;
+  max-width: 1248px;
+}
+
+.header__content__buttonGroups {
+  position: absolute;
+  right: 0;
+
+  .header__menu_buttons {
+    display: none;
+  }
+
+  .header__menu_button {
+    display: initial;
+  }
+
+  @media (min-width: 961px) {
+  }
+
+  @media (max-width: 960px) {
+    .header__menu_buttons {
+      display: initial;
+    }
+
+    .header__menu_button {
+      display: none;
+    }
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
