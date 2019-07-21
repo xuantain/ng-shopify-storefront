@@ -18,7 +18,7 @@ import { PagesModule } from './pages';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     ApolloModule,
