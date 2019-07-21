@@ -98,9 +98,9 @@ app.use('/graphql', express_graphql({
 }));
 
 // All regular routes use the Universal engine
-// app.get('*', (req, res) => {
-//   res.render('index', { req });
-// });
+app.get('*', (req, res) => {
+  res.render('index', { req });
+});
 
 // Start up the Node server
 app.listen(PORT, () => {
