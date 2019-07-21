@@ -13,7 +13,9 @@ module.exports = {
     './dist/server/main': 'require("./server/main")'
   },
   target: 'node',
-  resolve: { extensions: ['.ts', '.js'] },
+  resolve: {
+    extensions: [".webpack.js", ".web.js", ".mjs", "ts", ".js", ".json"]
+  },
   optimization: {
     minimize: false
   },

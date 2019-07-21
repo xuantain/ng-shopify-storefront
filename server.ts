@@ -18,7 +18,15 @@
 import 'zone.js/dist/zone-node';
 
 import * as express from 'express';
-import {join} from 'path';
+import * as cors from 'cors';
+import * as express_graphql from 'express-graphql';
+import { buildSchema } from 'graphql';
+
+const { makeExecutableSchema } = require("graphql-tools");
+
+const typeDefs = require("./schema").Schema;
+const resolvers = require("./resolvers").Resolvers;
+import { join } from 'path';
 
 // Express server
 const app = express();
@@ -27,7 +35,38 @@ const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist/browser');
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const {AppServerModuleNgFactory, LAZY_MODULE_MAP, ngExpressEngine, provideModuleMap} = require('./dist/server/main');
+const { AppServerModuleNgFactory, LAZY_MODULE_MAP, ngExpressEngine, provideModuleMap } = require('./dist/server/main');
+
+// GraphQL schema
+// const schema = buildSchema(`
+//   type Query {
+//     message: String
+//   }
+// `);
+
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers,
+  logger: {
+    log: e => console.log(e)
+  }
+});
+
+// Root resolver
+const root = {
+  message: () => 'Hello World!'
+};
+
+app.use(cors());
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
 app.engine('html', ngExpressEngine({
@@ -47,15 +86,21 @@ app.get('*.*', express.static(DIST_FOLDER, {
   maxAge: '1y'
 }));
 
-// All regular routes use the Universal engine
-app.get('*', (req, res) => {
-  res.render('index', { req });
-});
-
 // TODO: implement data requests securely
 app.get('/api/*', (req, res) => {
   res.status(404).send('data requests are not supported');
 });
+
+app.use('/graphql', express_graphql({
+  schema: schema,
+  rootValue: root,
+  graphiql: true
+}));
+
+// All regular routes use the Universal engine
+// app.get('*', (req, res) => {
+//   res.render('index', { req });
+// });
 
 // Start up the Node server
 app.listen(PORT, () => {
