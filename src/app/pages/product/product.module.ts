@@ -1,19 +1,14 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MatFormFieldModule, MatInputModule, MatIconModule } from '@angular/material';
+import { MatFormFieldModule, MatButtonModule, MatInputModule, MatIconModule, MatListModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
 
-import { ProductsComponent } from "./products.component";
-import { ProductComponent } from "../product/product.component";
+import { ProductComponent } from "./product.component";
 
 const productsRouting: ModuleWithProviders = RouterModule.forChild([
   {
     path: 'products',
-    component: ProductsComponent
-  },
-  {
-    path: 'product/:id',
     component: ProductComponent
   }
 ]);
@@ -23,13 +18,15 @@ const productsRouting: ModuleWithProviders = RouterModule.forChild([
     productsRouting,
     CommonModule,
     MatFormFieldModule,
+    MatButtonModule,
     MatInputModule,
     MatIconModule,
+    MatListModule,
     MatGridListModule
   ],
   declarations: [
-    ProductsComponent
+    ProductComponent
   ],
   providers: []
 })
-export class ProductsModule {}
+export class ProductModule {}
